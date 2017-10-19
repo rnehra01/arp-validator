@@ -1,0 +1,20 @@
+{
+  "name": "arp-validator",
+  "version": "0.0.1",
+  "description": "Security tool to detect arp poisoning attacks",
+  "author": "rnehra01",
+  "keywords": [
+    "arp",
+    "poison",
+    "detect",
+    "security"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rnehra01/arp-validator.git"
+  },
+  "dependencies": {
+    "pcap": "*",
+    "raw-socket": "^1.5.1"
+  }
+}
