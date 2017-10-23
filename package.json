@@ -14,7 +14,8 @@
     "url": "https://github.com/rnehra01/arp-validator.git"
   },
   "dependencies": {
-    "pcap": "*",
+    "ip": "^1.1.5",
+    "pcap": "git+https://github.com/mranney/node_pcap.git",
     "raw-socket": "^1.5.1"
   }
 }
