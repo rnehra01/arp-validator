@@ -130,3 +130,7 @@ global options:
 - [codenothing/argv](https://github.com/codenothing/argv)
 - [niegowski/node-daemonize2](https://github.com/niegowski/node-daemonize2)
 - [mikaelbr/node-notifier](https://github.com/mikaelbr/node-notifier)
+
+## References
+
+   Vivek Ramachandran and Sukumar Nandi, [“Detecting ARP Spoofing: An Active Technique”](https://link.springer.com/content/pdf/10.1007%2F11593980_18.pdf)
