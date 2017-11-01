@@ -1,14 +1,19 @@
 {
   "name": "arp-validator",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Security tool to detect arp poisoning attacks",
-  "author": "rnehra01",
+  "bugs": "https://github.com/rnehra01/arp-validator/issues",
+  "author": "Ravinder Nehra <hnehra1@gmail.com>",
   "keywords": [
     "arp",
     "poison",
     "detect",
-    "security"
+    "security",
+    "network"
   ],
+  "bin": {
+		"arp-validator": "./bin/arp-validator"
+	},
   "repository": {
     "type": "git",
     "url": "https://github.com/rnehra01/arp-validator.git"
