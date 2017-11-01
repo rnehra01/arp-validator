@@ -3,7 +3,7 @@
 
 ## Features
   - Uses a faster approach in detection of arp poisoning attacks compared to passive approaches
-  - Stores validated host for speed improvments
+  - Stores validated host for speed improvements
   - Works as a daemon process without interfering with normal traffic
   - Log's to any external file
 
@@ -11,12 +11,12 @@
 ```
   +-------------+                +---------------+                  +------------+    
   |  ARP packet |    ARP Reply   | Mac-ARP Header|    Consistent    |   Spoof    |
-  |   Sniffer   |  ------------> |  consistency  |  --------------> |  Detector  | 
+  |   Sniffer   |  ------------> |  consistency  |  --------------> |  Detector  |
   |             |     Packets    |    Checker    |    ARP Packets   |            |
   +-------------+                +---------------+                  +------------+
                                         |                                 /
                                    Inconsistent                         /
-                                   ARP Packets                     Spoofed 
+                                   ARP Packets                     Spoofed
                                         |                        ARP Packets
                                         V                         /
                                 +--------------+                /
@@ -24,7 +24,7 @@
                                 |   Notifier   |  <----------
                                 |              |
                                 +--------------+
-  
+
 ```
 
 1. **ARP Packets Sniffer**
@@ -37,7 +37,7 @@
    It matches
    - source MAC addresses in MAC header with ARP header
    - destination MAC addresses in MAC header with ARP header
-   
+
    If any of above doesn't match, then it will notified.
 3. **Spoof Detector**
 
@@ -54,17 +54,32 @@
    So there can be two type of packets:
    - RIGHT MAC - RIGHT IP
    - RIGHT MAC - WRONG IP (**Spoofed packet**)
-   
+
    For each consistent ARP packet, we will construct a TCP SYN packet with destination MAC and IP address as advertised by the ARP
    packet with some random TCP destination port and source MAC and IP address is that of the host running the tool.
-   
+
    **_If_**  a RST(port is closed) or ACK(port is listening) within TIME LIMIT is received for the SYN then host(who sent the ARP packet) is legitimate.
-   
+
    **_Else_**  No response is received within TIME LIMIT so host is not legitimate and it will be notified.
 4. **Notifier**
 
    It provides desktop notifications in case of ARP spoofing detection.
-   
+
+   ![Screenshot](docs/arp-results.jpg?raw=true)
+
+## Installation
+  > npm
+  ```
+  [sudo] npm install arp-validator -g
+  ```
+  > source
+  ```
+  git clone https://github.com/rnehra01/arp-validator.git
+  cd arp-validator
+  npm install
+  Use the binary in bin/ to run
+  ```
+
 ## Usage
 ```
 [sudo] arp-validator [action] [options]
