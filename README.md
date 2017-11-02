@@ -3,6 +3,7 @@
 
 ## Features
   - Uses a faster approach in detection of arp poisoning attacks compared to passive approaches
+  - Detects not only presence of ARP Poisoning but also valid IP-MAC mapping (when LAN hosts are using non-customized network stack)
   - Stores validated host for speed improvements
   - Works as a daemon process without interfering with normal traffic
   - Log's to any external file
@@ -130,6 +131,10 @@ global options:
 - [codenothing/argv](https://github.com/codenothing/argv)
 - [niegowski/node-daemonize2](https://github.com/niegowski/node-daemonize2)
 - [mikaelbr/node-notifier](https://github.com/mikaelbr/node-notifier)
+
+## Issues
+- [ ]  Currently, it is assumed that hosts are using non-customized network stack hence the malicious host won't respond the TCP SYN packet. But in case the malicious host is using a customized network stack, it can directly capture the TCP SYN packet from layer 2 and can respond with a self-constructed TCP RST or ACK hencour tool will validate the malicious host.
+- [ ] If a host is using a firewall which allows TCP packets for only some specific ports, in that case a legitimate host 	also won't respond to the TCP SYN packet and tool will give a False Positive of ARP Poisoning Detection.
 
 ## References
 
